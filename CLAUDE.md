@@ -22,6 +22,7 @@ Before declaring the task complete:
 - [ ] Run ALL verification commands (tests, linting, typechecking)
 - [ ] Ensure documentation is complete per standards above
 - [ ] Verify all git commits follow required format
+- [ ] Verify all automated tests pass, including end-to-end tests
 
 FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
 
@@ -59,18 +60,41 @@ Because you might be working on the next task before the previous branch was mer
 
 # Test Driven Development - CRITICAL
 
-  NEVER implement features without tests. For EVERY feature:
+## Test ALL Changes
 
-  1. Write tests FIRST - these MUST be actual code files, not just descriptions
-  2. Verify tests fail (run them to confirm)
-  3. Implement the feature
-  4. Verify tests pass
+NEVER implement features or fix bugs without tests. For EVERY change:
 
-  Before marking ANY issue as complete, verify:
-  - Test coverage exists for all features
-  - All tests are passing
+1. Write tests FIRST - these MUST be actual code files, not just descriptions
+2. Verify tests fail (run them to confirm)
+3. Implement the feature or fix
+4. Verify tests pass
 
-  Remember: No tests = incomplete feature
+Before marking ANY issue as complete, verify:
+- Test coverage exists for all changes
+- All tests are passing
+
+Remember: No tests = incomplete implementation
+
+## Complete Testing Strategy
+
+A comprehensive testing strategy must include:
+
+1. **Unit Tests**: Test individual components and functions in isolation
+   - Test both success and error paths
+   - Mock external dependencies
+
+2. **Integration Tests**: Test how components work together
+   - Verify data flows correctly between components
+   - Test system boundaries (file I/O, network, database)
+
+3. **End-to-End Tests**: Test complete user workflows
+   - Automate user interactions from start to finish
+   - Test ALL state transitions and data persistence
+   - Include full lifecycle testing (create, read, update, delete)
+   - Test application restart/reload where relevant
+   - Cover both happy paths AND error conditions
+
+Manual testing should ONLY be used as a last resort for aspects that are provably impossible to automate, and must be documented with precise steps and expected outcomes.
 
 # Design Decisions
 
