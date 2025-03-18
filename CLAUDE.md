@@ -1,4 +1,33 @@
-# project management
+# IMPLEMENTATION GATES
+
+**CRITICAL: The instructions in this file are not optional guidelines - they are mandatory requirements.**
+
+## Gate 1: Pre-Implementation (STOP HERE)
+Before writing ANY implementation code, confirm completion of:
+- [ ] Git repository initialized with proper branch
+- [ ] Test files created (must fail initially)
+- [ ] Required directories created
+- [ ] Initial design decisions documented
+
+You MUST present this completed checklist to the user for approval before proceeding.
+
+## Gate 2: Mid-Implementation Review
+After implementing core components but before completing the solution:
+- [ ] Verify all completed code adheres to ALL requirements in this file
+- [ ] Check for drift from documented design decisions
+- [ ] Confirm test coverage for all implemented features
+
+## Gate 3: Pre-Completion Verification
+Before declaring the task complete:
+- [ ] Run ALL verification commands (tests, linting, typechecking)
+- [ ] Ensure documentation is complete per standards above
+- [ ] Verify all git commits follow required format
+
+FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
+
+---
+
+# Project Management
 
 When we agree on a task that needs to be done, create a markdown "issue" file in projects/todo/
 While you're working on a task, move its file to projects/wip/
@@ -22,7 +51,7 @@ Each issue file should include the following sections:
 - Documentation: what documentation needs to be updated
 - Implementation: list of all git commits made and the branch name
 
-# git
+# Git
 
 Every task gets its own branch named using the format `issue-NUMBER/short-description` (e.g., `issue-0001/add-authentication`). 
 
@@ -43,15 +72,15 @@ Because you might be working on the next task before the previous branch was mer
 
   Remember: No tests = incomplete feature
 
-# Design decisions
+# Design Decisions
 
 We track design decisions in docs/design-decisions. One markdown file for each major design decision. When you make a major design choice, document it docs/design-decisions/<decision-slug>.md.  Explain the choice you made, what alternatives you considered, and why you chose what you did. BE CONCISE. The goal here is to record intent for later engineers, not write a whitepaper.
 
-# Rewriting code
+# Rewriting Code
 
 You sometimes have a tendency to reimplement features or systems from scratch, instead of updating the existing implementation. Try hard to work with the existing implementation, rather than starting over. Make the smallest reasonable changes to get to the desired outcome. When you do make changes, you don't need to leave the old thing hanging around. We're tracking everything in git. It'll be in the history.
 
-# Code changes discipline
+# Code Changes Discipline
 
 1. Never make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it as a new issue instead of fixing it immediately.
 
@@ -67,11 +96,11 @@ You sometimes have a tendency to reimplement features or systems from scratch, i
 
 7. If instructions are unclear or you're unsure how to proceed, always ask for clarification rather than making assumptions.
 
-# Making the codebase comprehensible
+# Making the Codebase Comprehensible
 
 All code files (that includes scripts, makefiles, etc) should start with a brief 2 line comment explaining what the file does. Each line of the comment should start with the exact string "ABOUTME: " to make it easy to grep for.
 
-# Scratch directory
+# Scratch Directory
 
 You seem to write a lot of little throwaway scripts that you run once and are then done with. put them in a scratch/ directory at the top level of the repo.
 
@@ -81,5 +110,3 @@ Please keep the project's README up to date. It should always include:
  - a set of examples showing how to use all the commandline tools in the project. 
  - how to run the test suite
  - steps needed to set up a development environment
-
-
