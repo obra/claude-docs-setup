@@ -24,6 +24,18 @@ Before declaring the task complete:
 - [ ] Verify all git commits follow required format
 - [ ] Verify all automated tests pass, including end-to-end tests
 
+# Pre-Submission Quality Checks
+
+Before declaring ANY implementation complete, perform these mandatory checks:
+
+1. Verify console is clean during normal application operation
+2. Ensure all types of tests are present and passing:
+   - [ ] Unit tests
+   - [ ] Integration tests 
+   - [ ] End-to-end tests
+3. Check browser devtools console for errors during manual testing
+4. Review all error handling paths
+
 FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
 
 ---
@@ -95,6 +107,18 @@ A comprehensive testing strategy must include:
    - Cover both happy paths AND error conditions
 
 Manual testing should ONLY be used as a last resort for aspects that are provably impossible to automate, and must be documented with precise steps and expected outcomes.
+
+## End-to-End Testing Requirements
+
+End-to-end tests are MANDATORY for any user-facing application. Always create specific E2E test files that:
+
+1. Test complete user flows from start to finish
+2. Verify persistence across page reloads/restarts
+3. Test all CRUD operations in sequence
+4. Include specific tests for localStorage or other persistence mechanisms
+5. Use appropriate testing tools (Cypress, Playwright, or comprehensive RTL tests)
+
+You MUST implement, verify, and document E2E tests before marking any user-facing feature as complete.
 
 # Design Decisions
 
