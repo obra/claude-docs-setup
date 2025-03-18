@@ -28,9 +28,20 @@ Every task gets its own branch named using the format `issue-NUMBER/short-descri
 
 Because you might be working on the next task before the previous branch was merged down, always start your work from the last branch you were working on. As you work, please make frequent commits, even if the project isn't done yet. Every logical changeset gets its own commit. You know how to write good commit messages. Ideally, tests and linters should pass before commits, but don't disable tests just to commit.
 
-# Test Driven Development
+# Test Driven Development - CRITICAL
 
-Write tests for functionality *before* you write new code or make code changes. The tests should fail when you run them before you make your changes. They should pass afterward.
+  NEVER implement features without tests. For EVERY feature:
+
+  1. Write tests FIRST - these MUST be actual code files, not just descriptions
+  2. Verify tests fail (run them to confirm)
+  3. Implement the feature
+  4. Verify tests pass
+
+  Before marking ANY issue as complete, verify:
+  - Test coverage exists for all features
+  - All tests are passing
+
+  Remember: No tests = incomplete feature
 
 # Design decisions
 
