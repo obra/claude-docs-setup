@@ -13,5 +13,6 @@ install-claude:
 reset-project:
 	rm -rf ~/git/projects/react-todo-list
 	pbcopy < project-prompt.txt
+	mkdir -p ~/git/projects/react-todo-list
 	cd ~/git/projects/react-todo-list
 	claude
