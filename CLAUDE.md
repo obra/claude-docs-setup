@@ -1,135 +1,125 @@
-# CLAUDE.md - Software Development Process Guide
+# CLAUDE.md - Development Checklist
 
-## Development Philosophy
+**CRITICAL: Follow these checklists for EVERY development task.**
 
-This document outlines our structured software development process designed to ensure high-quality, well-tested, and maintainable code. By following these processes, we create software that's reliable, comprehensible, and adaptable to future needs.
+## Implementation Gates
 
-## Development Workflow
-
-### 1. Issue Management
-
-When we agree on work that needs to be done:
-
-1. **Create an issue file** in `projects/todo/issue-NNNN-short-description.md` (e.g., `issue-0001-add-authentication.md`)
-2. **Move to working directory** while in progress: `projects/wip/`
-3. **Move to completed directory** when done: `projects/done/`
-
-If these directories don't exist:
-```bash
-mkdir -p projects/todo projects/wip projects/done
-```
-
-Each issue file should include:
-- **Title:** Top-level heading describing the issue
-- **Problem:** What needs to be solved
-- **Approach:** How we'll solve it
-- **Implementation Plan:** Step-by-step implementation strategy
-- **Failed Approaches:** Document any approaches that didn't work (if applicable)
-- **Tasks:** Checklist of items to complete
-- **Testing:** Testing strategy for the changes
-- **Documentation:** Documentation updates needed
-- **Implementation:** List of all git commits made and the branch name
-
-### 2. Branch Management
-
-**Always create a dedicated branch for each issue:**
-- Format: `issue-NNNN/short-description` (e.g., `issue-0001/add-authentication`)
-- Base each new branch on the most recently active branch if the previous one hasn't been merged
-
-### 3. Implementation Process
-
-For every feature implementation, follow this process:
-
-#### Stage 1: Pre-Implementation (STOP HERE)
+### ✅ Gate 1: Pre-Implementation (STOP HERE)
 Before writing ANY implementation code:
-1. Initialize git repository with proper branch
-2. Create test files (they must fail initially)
-3. Create required directories
-4. Document initial design decisions
-5. **Present this completed checklist for approval before proceeding**
+- [ ] Create git branch named `issue-NUMBER/short-description`
+- [ ] Create test files that will fail initially
+- [ ] Create required directories
+- [ ] Document design decisions in `docs/design-decisions/`
+- [ ] Present this completed checklist for approval before proceeding
 
-#### Stage 2: Test-Driven Development
-For EVERY feature or change:
-1. Write tests FIRST as actual code files
-2. Run and verify tests fail (confirm they're testing the right thing)
-3. Implement the feature or fix
-4. Verify tests pass
+### ✅ Gate 2: Mid-Implementation Review
+After implementing core components:
+- [ ] Verify all code meets requirements
+- [ ] Check for drift from documented design decisions
+- [ ] Confirm test coverage for implemented features
+- [ ] Make frequent, logical commits with clear messages
 
-#### Stage 3: Mid-Implementation Review
-After implementing core components but before completing the solution:
-1. Verify all completed code adheres to requirements
-2. Check for drift from documented design decisions
-3. Confirm test coverage for all implemented features
+### ✅ Gate 3: Pre-Completion Verification
+Before marking task complete:
+- [ ] Run ALL verification commands (tests, linting, typechecking)
+- [ ] Ensure documentation is complete
+- [ ] Verify all git commits follow required format
+- [ ] Verify all automated tests pass (unit, integration, end-to-end)
+- [ ] Verify console is clean during normal operation
+- [ ] Review all error handling paths
 
-#### Stage 4: Pre-Completion Verification
-Before declaring any task complete:
-1. Run ALL verification commands (tests, linting, typechecking)
-2. Ensure documentation is complete
-3. Verify all git commits follow required format
-4. Verify all tests pass, including end-to-end tests
-5. Perform the pre-submission quality checks:
-   - Verify console is clean during normal application operation
-   - Ensure all types of tests are present and passing
-   - Review all error handling paths
+## Issue Management Checklist
 
-## Testing Strategy
+### ✅ For each new task:
+- [ ] Create issue file in `projects/todo/issue-NUMBER-short-description.md`
+- [ ] Move file to `projects/wip/` when starting work
+- [ ] Move file to `projects/done/` when complete
 
-A complete testing strategy includes three layers:
+### ✅ Each issue file must include:
+- [ ] Top-level heading describing the issue
+- [ ] Problem description
+- [ ] Approach description
+- [ ] Implementation plan with steps
+- [ ] Failed approaches (if any)
+- [ ] Tasks checklist
+- [ ] Testing strategy
+- [ ] Documentation needs
+- [ ] Implementation details (commits and branch)
 
-### 1. Unit Tests
-- Test individual components and functions in isolation
-- Test both success and error paths
-- Mock external dependencies
+## Test-Driven Development Checklist
 
-### 2. Integration Tests
-- Test how components work together
-- Verify data flows correctly between components
-- Test system boundaries (file I/O, network, database)
+### ✅ For EVERY change:
+- [ ] Write tests FIRST as actual code files
+- [ ] Run tests to verify they fail
+- [ ] Implement the feature or fix
+- [ ] Verify tests pass
 
-### 3. End-to-End Tests (MANDATORY for user-facing applications)
-- Test complete user workflows from start to finish
-- Verify persistence across page reloads/restarts
-- Test all CRUD operations in sequence
-- Include tests for localStorage or other persistence mechanisms
-- Use appropriate testing tools (Cypress, Playwright, or comprehensive RTL tests)
+### ✅ Unit Tests:
+- [ ] Test individual components in isolation
+- [ ] Cover success paths
+- [ ] Cover error paths
+- [ ] Mock external dependencies
 
-## Documentation Practices
+### ✅ Integration Tests:
+- [ ] Test component interactions
+- [ ] Verify data flows correctly
+- [ ] Test system boundaries (I/O, network, DB)
 
-### Design Decisions
-Document major design decisions in `docs/design-decisions/<decision-slug>.md`. Include:
-- The choice you made
-- Alternatives considered
-- Rationale for your decision
+### ✅ End-to-End Tests (MANDATORY for user-facing apps):
+- [ ] Test complete user flows
+- [ ] Verify persistence across reloads
+- [ ] Test all CRUD operations
+- [ ] Test localStorage/persistence
+- [ ] Use appropriate testing tools
 
-Be concise - the goal is to record intent for future engineers.
+## Code Change Discipline
 
-### Code Documentation
-- All code files should start with a brief 2-line comment explaining what the file does
-- Each line of this comment should start with `ABOUTME: ` to make it easy to grep for
-- Write function-level documentation for all functions
-- Add explanatory comments for any non-obvious or tricky code
+### ✅ For ALL code changes:
+- [ ] Only make changes related to the current task
+- [ ] Document unrelated issues instead of fixing immediately
+- [ ] Preserve all code comments unless provably false
+- [ ] Match style and formatting of surrounding code
+- [ ] Write function-level documentation
+- [ ] Add explanatory comments for non-obvious code
+- [ ] Prefer simple, maintainable solutions over clever ones
+- [ ] Ask for clarification when instructions are unclear
+- [ ] Work with existing implementations instead of reimplementing from scratch
+- [ ] Make the smallest reasonable changes to achieve the goal
 
-### README Maintenance
-Keep the project's README up to date with:
-- Examples showing how to use all commandline tools
-- How to run the test suite
-- Steps needed to set up a development environment
+## Documentation Checklist
 
-## Code Change Principles
+### ✅ All code files must include:
+- [ ] Add 2-line comment at the top explaining the file's purpose
+- [ ] Start each line with "ABOUTME: " for easy grepping
 
-1. **Make minimal changes:** Work with existing implementations rather than starting from scratch
-2. **Stay focused:** Only make changes directly related to your assigned task
-3. **Preserve comments:** Never remove code comments unless they are demonstrably false
-4. **Maintain consistency:** Match the style of surrounding code
-5. **Prioritize clarity:** Prefer simple, clean solutions over clever or complex ones
-6. **Ask questions:** When instructions are unclear, seek clarification rather than making assumptions
-7. **Commit frequently:** Make small, logical commits with good commit messages
+### ✅ For design decisions:
+- [ ] Create file in `docs/design-decisions/<decision-slug>.md`
+- [ ] Document the chosen approach
+- [ ] List alternatives considered
+- [ ] Explain rationale for choice
 
-## Miscellaneous
+### ✅ README maintenance:
+- [ ] Include examples for all commandline tools
+- [ ] Document how to run the test suite
+- [ ] Include development environment setup steps
 
-### Scratch Directory
-Put throwaway scripts in a `scratch/` directory at the top level of the repo.
+## Git Workflow
 
----
+### ✅ Branch management:
+- [ ] Create branch for each issue: `issue-NUMBER/short-description`
+- [ ] Base new branch on most recent branch if previous not merged
+- [ ] Make frequent commits of logical units
+- [ ] Write descriptive commit messages
 
-Remember: This process is not optional. Each stage must be completed fully before proceeding to the next. Failure to pass any gate invalidates the implementation.
+## Directory Structure
+
+### ✅ Create if not exists:
+- [ ] `projects/todo/` - For tracking issues to be worked on
+- [ ] `projects/wip/` - For issues in progress
+- [ ] `projects/done/` - For completed issues
+- [ ] `docs/design-decisions/` - For documenting design choices
+- [ ] `scratch/` - For throwaway scripts
+
+**REMEMBER: No tests = incomplete implementation.**
+
+**CRITICAL: FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION**
