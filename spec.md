@@ -26,9 +26,47 @@ Templates will be stored in `~/.claude-templates/` by default
 All templates will be in Markdown format
 
 ### Templates Included
-1. Task template (to be filled in)
-2. Project template (to be filled in)
-3. TDD explanation document
+1. Task template - Template for project tasks/issues
+2. Project template - Template for overall project documentation
+3. TDD explanation document - Reference guide for Test-Driven Development
+
+#### Task Template Structure
+The task template includes the following sections:
+- Title - Brief description of the task
+- Problem - Concise description of the problem addressed
+- Approach - Description of the solution approach
+- Implementation Plan - Detailed implementation steps
+- Failed Approaches - Documentation of unsuccessful attempts
+- Testing - Description of testing methodology
+- Documentation - Required documentation updates
+- Implementation - Record of git commits and branch name
+- Tasks - Checklist of items to complete, including:
+  - Implementation gates (pre-implementation, mid-implementation, pre-completion)
+  - Test verifications (unit, integration, end-to-end)
+  - Quality checks
+
+#### Project Template Structure
+The project template includes the following sections:
+- Project Name - Title of the project
+- Overview - High-level project description
+- Goals - Specific and measurable objectives
+- Timeline - Expected completion schedule with milestones
+- Features - List of planned features
+- Technical Approach - Architecture and technical strategy
+- Dependencies - External requirements
+- Team - Team members and roles
+- Risks and Mitigations - Potential issues and strategies
+- Success Criteria - Project completion standards
+- Documentation - Links to resources
+
+#### TDD Explanation Document Structure
+The TDD explanation document includes:
+- Definition of TDD
+- TDD Cycle explanation (Red-Green-Refactor)
+- Benefits of TDD
+- Best practices
+- Types of tests (Unit, Integration, End-to-End)
+- Implementation steps
 
 ### Validation
 - Check if target directory exists
@@ -68,6 +106,29 @@ The tool will create the following directories if they don't exist:
 - Pull issue template content from CLAUDE.md
 - No version control integration in v1
 - No support for updating existing templates in v1
+
+#### CLAUDE.md Content Extraction
+The tool will extract content from CLAUDE.md to populate parts of the task template:
+
+1. **Detection Process**:
+   - Look for CLAUDE.md in the current directory
+   - If not found, look for CLAUDE.md in the user's home directory
+
+2. **Content Extraction**:
+   - Parse the CLAUDE.md file as markdown
+   - Extract the following sections:
+     - Implementation Gates (to populate the Gates sections in the task template)
+     - Test Driven Development requirements
+     - Code Changes Discipline guidelines
+
+3. **Mapping to Task Template**:
+   - The Implementation Gates section will be mapped to corresponding sections in the task template
+   - TDD requirements will be included in the Testing section
+   - Code Changes guidelines will be included in the Implementation section
+
+4. **Fallback Behavior**:
+   - If CLAUDE.md is not found, use the default task template
+   - If specific sections are not found in CLAUDE.md, use default content for those sections
 
 ## Implementation Plan
 1. Set up Node.js project with necessary dependencies
