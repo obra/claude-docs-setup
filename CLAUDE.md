@@ -1,42 +1,5 @@
 # IMPLEMENTATION GATES
 
-**CRITICAL: The instructions in this file are not optional guidelines - they are mandatory requirements.**
-
-## Gate 1: Pre-Implementation (STOP HERE)
-Before writing ANY implementation code, confirm completion of:
-- [ ] Git repository initialized with proper branch
-- [ ] Test files created (must fail initially)
-- [ ] Required directories created
-- [ ] Initial design decisions documented
-
-You MUST present this completed checklist to the user for approval before proceeding.
-
-## Gate 2: Mid-Implementation Review
-After implementing core components but before completing the solution:
-- [ ] Verify all completed code adheres to ALL requirements in this file
-- [ ] Check for drift from documented design decisions
-- [ ] Confirm test coverage for all implemented features
-
-## Gate 3: Pre-Completion Verification
-Before declaring the task complete:
-- [ ] Run ALL verification commands (tests, linting, typechecking)
-- [ ] Ensure documentation is complete per standards above
-- [ ] Verify all git commits follow required format
-- [ ] Verify all automated tests pass, including end-to-end tests
-
-# Pre-Submission Quality Checks
-
-Before declaring ANY implementation complete, perform these mandatory checks:
-
-1. Verify console is clean during normal application operation
-2. Ensure all types of tests are present and passing:
-   - [ ] Unit tests
-   - [ ] Integration tests 
-   - [ ] End-to-end tests
-3. Check browser devtools console for errors during manual testing
-4. Review all error handling paths
-
-FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
 
 ---
 
@@ -46,23 +9,88 @@ When we agree on a task that needs to be done, create a markdown "issue" file in
 While you're working on a task, move its file to projects/wip/
 When the task has been completed, move the file to projects/done/
 
+
+# Project setup
+
 If these directories don't exist yet, create them:
 ```bash
 mkdir -p projects/todo projects/wip projects/done
 ```
 
-We use issue files to track and manage work. Name issue files using the format `issue-NUMBER-short-description.md` (e.g., `issue-0001-add-authentication.md`). Issue numbers are sequential, starting with 0001.
+When asked to plan, break down the work into meaningful work tasks. 
+Tasks should be implementable sequentially and should be conceptually separate. 
+If a task is something that would take an average developer more than 2-4 hours, you need to break it into smaller tasks
+"Set up project infrastructure" might be a great second task after project planning has been completed.
+"Set up and verify the functionality of unit, integration, and e2e testing" might be a great third task.
+
+
+We use issue files to track and manage work. 
+Each high-level task gets its own issue.
+Name issue files using the format `issue-NUMBER-short-description.md` (e.g., `issue-0001-add-authentication.md`). 
+Issue numbers are sequential, starting with 0001.
 
 Each issue file should include the following sections:
 - Top-level heading describing the issue
 - Problem: describing what needs to be solved
 - Approach: describing the approach you are pursuing
 - Implementation Plan: detailed steps for implementing the solution
-- Failed Approaches: describing any approaches that didn't work
-- Tasks: a checklist of items to complete
+- Failed Approaches: describing any approaches that didn't work. 
 - Testing: how the changes will be tested
 - Documentation: what documentation needs to be updated
 - Implementation: list of all git commits made and the branch name
+- Tasks: a checklist of items to complete
+- The Tasklist must contain all of the following items. It must also list the actual tasks for the issue.
+
+	**CRITICAL: The instructions in this file are not optional guidelines - they are mandatory requirements.**
+	
+	- [ ] Plan your implementation
+	- [ ] Ensure that all implementation tasks are listed in this TODO list. 
+	
+	## Gate 1: Pre-Implementation (STOP HERE)
+	Before writing ANY implementation code, confirm completion of:
+	- [ ] Git repository initialized with proper branch
+	- [ ] Required directories created
+	- [ ] Initial design decisions documented - ( We track design decisions in docs/design-decisions. One markdown file for each major design decision. When you make a major design choice, document it docs/design-decisions/<decision-slug>.md.  Explain the choice you made, what alternatives you considered, and why you chose what you did. BE CONCISE. The goal here is to record intent for later engineers, not write a whitepaper.)
+	- [ ] Unit test files created 
+	- [ ] End to end test files created 
+	- [ ] Integration test files created
+	- [ ] New unit tests run and verified failing
+	- [ ] New integration tests run and verified failing
+	- [ ] New end to end tests run and verified failing	
+	
+	## Gate 2: Mid-Implementation Review
+	After implementing core functionality but before completing the solution:
+	- [ ] Verify all completed code adheres to ALL requirements in this file
+	- [ ] Check for drift from documented design decisions
+	- [ ] Confirm test coverage for all implemented features
+	
+	## Gate 3: Pre-Completion Verification
+	Before declaring the task complete:
+	- [ ] Run ALL verification commands (tests, linting, typechecking)
+	- [ ] Ensure documentation is complete per standards above
+	- [ ] Verify all git commits follow required format
+	- [ ] Verify all automated tests pass, including end-to-end tests
+	
+	# Gate 4: Pre-Submission Quality Checks
+	
+	Before declaring ANY implementation complete, perform these mandatory checks:
+	
+	- Ensure all types of tests are present, have been run, and are passing.
+	   - [ ] Unit tests
+	   - [ ] Integration tests 
+	   - [ ] End-to-end tests
+
+
+	# Gate 5: Final commit for the isse
+	   - [ ] Author a meaningful commit message for this change. Include details of your intent, as well as logs showing that you ran tests and that they passed.
+
+	FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
+	
+
+
+
+
+
 
 # Git
 
@@ -72,67 +100,15 @@ Because you might be working on the next task before the previous branch was mer
 
 # Test Driven Development - CRITICAL
 
-## Test ALL Changes
-
-NEVER implement features or fix bugs without tests. For EVERY change:
-
-1. Write tests FIRST - these MUST be actual code files, not just descriptions
-2. Verify tests fail (run them to confirm)
-3. Implement the feature or fix
-4. Verify tests pass
-
-Before marking ANY issue as complete, verify:
-- Test coverage exists for all changes
-- All tests are passing
-
-Remember: No tests = incomplete implementation
-
-## Complete Testing Strategy
-
-A comprehensive testing strategy must include:
-
-1. **Unit Tests**: Test individual components and functions in isolation
-   - Test both success and error paths
-   - Mock external dependencies
-
-2. **Integration Tests**: Test how components work together
-   - Verify data flows correctly between components
-   - Test system boundaries (file I/O, network, database)
-
-3. **End-to-End Tests**: Test complete user workflows
-   - Automate user interactions from start to finish
-   - Test ALL state transitions and data persistence
-   - Include full lifecycle testing (create, read, update, delete)
-   - Test application restart/reload where relevant
-   - Cover both happy paths AND error conditions
-
-Manual testing should ONLY be used as a last resort for aspects that are provably impossible to automate, and must be documented with precise steps and expected outcomes.
-
-## End-to-End Testing Requirements
-
-End-to-end tests are MANDATORY for any user-facing application. Always create specific E2E test files that:
-
-1. Test complete user flows from start to finish
-2. Verify persistence across page reloads/restarts
-3. Test all CRUD operations in sequence
-4. Include specific tests for localStorage or other persistence mechanisms
-5. Use appropriate testing tools (Cypress, Playwright, or comprehensive RTL tests)
-
-You MUST implement, verify, and document E2E tests before marking any user-facing feature as complete.
-
-# Design Decisions
-
-We track design decisions in docs/design-decisions. One markdown file for each major design decision. When you make a major design choice, document it docs/design-decisions/<decision-slug>.md.  Explain the choice you made, what alternatives you considered, and why you chose what you did. BE CONCISE. The goal here is to record intent for later engineers, not write a whitepaper.
-
 # Rewriting Code
 
 You sometimes have a tendency to reimplement features or systems from scratch, instead of updating the existing implementation. Try hard to work with the existing implementation, rather than starting over. Make the smallest reasonable changes to get to the desired outcome. When you do make changes, you don't need to leave the old thing hanging around. We're tracking everything in git. It'll be in the history.
 
 # Code Changes Discipline
 
-1. Never make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it as a new issue instead of fixing it immediately.
+1. NEVER make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it as a new issue instead of fixing it immediately.
 
-2. Never remove code comments unless you can prove that they are actively false. Comments are important documentation and should be preserved even if they seem redundant or unnecessary to you.
+2. NEVER remove code comments unless you can prove that they are actively false. Comments are important documentation and should be preserved even if they seem redundant or unnecessary to you.
 
 3. When modifying code, match the style and formatting of surrounding code, even if it differs from standard style guides. Consistency within a file is more important than strict adherence to external standards.
 
