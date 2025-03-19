@@ -10,7 +10,7 @@ paste-and-commit:
 install-claude:
 	cp CLAUDE.md ~/.claude
 
-reset-project:
+reset-project: install-claude
 	rm -rf ~/git/projects/react-todo-list
 	pbcopy < project-prompt.txt
 	mkdir -p ~/git/projects/react-todo-list
