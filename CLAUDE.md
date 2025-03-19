@@ -8,7 +8,7 @@ From here you should have the foundation to provide a series of prompts for a co
 
 Make sure and separate each prompt section. Use markdown. Each prompt should be tagged as text using code tags. The goal is to output prompts, but context, etc is important as well.
 
-Store the plan in plan.md. Also create a todo.md to keep state.
+Store the plan in plan.md. 
 
 # After you make a plan
 
