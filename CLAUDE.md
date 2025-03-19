@@ -50,20 +50,21 @@ Each issue file should include the following sections:
 - Tasks: a checklist of items to complete
 - The Tasklist must contain all of the following items verbatim. It must also list the actual tasks for the issue in the 'Gate 2' section.
 
-	**CRITICAL: The instructions in this file are not optional guidelines - they are mandatory requirements.**
+	**CRITICAL: The instructions in this file are not optional guidelines - they are ALL MANDATORY requirements. DO NOT SKIP STEPS**
 	
 	- [ ] Plan your implementation
 	- [ ] Ensure that all implementation tasks are listed in this TODO list. 
 	
 	## Gate 1: Pre-Implementation - STOP HERE AND THINK
-	Before writing ANY implementation code, confirm completion of:
-	- [ ] Git repository initialized with proper branch
+
+	Before writing ANY implementation code, confirm completion of ALL of these tasks:
+	- [ ] Git repository initialized with proper branch checked out
 	- [ ] Required directories created
 	- [ ] Major design decisions documented in docs/design-decisions/<decision-slug.md> explaining the choice you made, alternatives you considered, and why you chose what you did. BE CONCISE.
 	- [ ] Stand up from your desk and scream out loud "WE DO TEST DRIVEN DEVELOPMENT. I WILL NOT WRITE ANY CODE UNTIL I WRITE AND RUN A FAILING TEST FOR THE THING I AM DOING"
-	- [ ] Unit test files created 
-	- [ ] End to end test files created 
-	- [ ] Integration test files created
+	- [ ] Create new failing unit tests for this functionality
+	- [ ] Create new failing integration tests for this functionality
+	- [ ] Create new failing end to end tests for this functionality
 	- [ ] Verify that new unit tests run to completion and fail
 	- [ ] Verify that new integration tests run to completion and fail
 	- [ ] Verify that new end to end tests run to completion and fail
@@ -90,9 +91,9 @@ Each issue file should include the following sections:
  		- [ ] a set of examples showing how to use all the commandline tools in the project. 
  		- [ ] how to run the test suite
  		- [ ] steps needed to set up a development environment
-	- [ ] Verify that unit tests run to completion and pass
-	- [ ] Verify that integration tests run to completion and pass
-	- [ ] Verify that end to end tests run to completion and pass
+	- [ ] Run the unit tests by themselves. Verify that they to completion and pass
+	- [ ] Run the integration tests by themselves. Verify that they to completion and pass
+	- [ ] Run the end to end tests by themselves. Verify that they to completion and pass
 	
 	# Gate 5: Final commit for the issue - STIO HERE AND THINK
 
