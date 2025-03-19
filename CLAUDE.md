@@ -70,18 +70,18 @@ Each issue file should include the following sections:
 	- [ ] Verify that new end to end tests run to completion and fail
 
 
-	## Gate 2: Implement the functionlity - STOP HERE AND THINK
+	## Gate 2: Implement the functionlity - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
 
 	[ fill in this section with issue-specific tasks ]	
 	
-	## Gate 3: Mid-Implementation Review - STOP HERE AND THINK
+	## Gate 3: Mid-Implementation Review - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
 
 	After implementing core functionality:
 	- [ ] Verify all completed code adheres to ALL requirements in this file and in CLAUDE.md
 	- [ ] Check for drift from documented design decisions
 	- [ ] Confirm test coverage for all implemented features
 	
-	## Gate 4: Pre-Completion Verification - STOP HERE AND THINK
+	## Gate 4: Pre-Completion Verification - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
 
 	Before declaring the task complete perform these MANDATORY checks:
 	- [ ] Run ALL verification commands (tests, linting, typechecking)
@@ -91,15 +91,14 @@ Each issue file should include the following sections:
  		- [ ] a set of examples showing how to use all the commandline tools in the project. 
  		- [ ] how to run the test suite
  		- [ ] steps needed to set up a development environment
-	- [ ] Run the unit tests by themselves. Verify that they to completion and pass
-	- [ ] Run the integration tests by themselves. Verify that they to completion and pass
-	- [ ] Run the end to end tests by themselves. Verify that they to completion and pass
+	- [ ] Run the unit tests by themselves. Verify that they to completion and pass and that there is no unexpected output
+	- [ ] Run the integration tests by themselves. Verify that they to completion and pass and that there is no unexpected output
+	- [ ] Run the end to end tests by themselves. Verify that they to completion and pass and that there is no unexpected output
 	
-	# Gate 5: Final commit for the issue - STIO HERE AND THINK
-
+	# Gate 5: Final commit for the issue - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
 	- [ ] Author a meaningful commit message for this change. Include details of your intent, as well as logs showing that you ran tests and that they passed.
 
-	FAILURE TO PASS ANY GATE INVALIDATES THE IMPLEMENTATION
+	FAILURE TO PASS ANY GATE INVALIDATES THE WHOLE IMPLEMENTATION. YOU ARE NOT DONE UNTIL YOU CLEAR GATE 5
 	NO EXCEPTIONS POLICY: Under no circumstances should you mark any test type as "not
   	applicable". Every project, regardless of size or complexity, MUST have unit tests,
   	integration tests, AND end-to-end tests. If you believe a test type doesn't apply, 
