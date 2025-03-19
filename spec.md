@@ -11,10 +11,16 @@ A command-line tool that helps Claude copy instructional documents and templates
 
 ## Technical Details
 
-### Command Name
+### Command Name and Arguments
 ```
-claude-docs setup
+claude-docs setup [options] [target-directory]
 ```
+
+#### Command-line Options
+- `target-directory`: Directory to set up (defaults to current directory)
+- `--claude-file <path>`: Explicitly specify the path to a CLAUDE.md file
+- `--generate-claude`: Generate a sample CLAUDE.md file if none is found
+- `--force`, `-f`: Override existing files without confirmation
 
 ### Implementation Language
 Node.js
@@ -102,6 +108,34 @@ The tool will create the following directories if they don't exist:
 - Basic error handling
 - No special logging requirements
 
+#### Specific Error Scenarios
+
+1. **CLAUDE.md Not Found**:
+   - **Error Level**: Warning (non-fatal)
+   - **Behavior**: 
+     - Log detailed search paths that were checked
+     - Use default templates
+     - Provide hint about using --generate-claude flag
+   - **User Notification**:
+     - Display warning message: "CLAUDE.md not found. Using default templates."
+     - If --generate-claude flag was not used, suggest: "Use --generate-claude to create a sample CLAUDE.md file."
+
+2. **CLAUDE.md Parse Error**:
+   - **Error Level**: Warning (non-fatal)
+   - **Behavior**: 
+     - Log specific parsing error
+     - Continue with default templates for failed sections
+   - **User Notification**:
+     - Display warning message: "Error parsing CLAUDE.md. Using default templates for affected sections."
+
+3. **Missing Required Sections in CLAUDE.md**:
+   - **Error Level**: Warning (non-fatal)
+   - **Behavior**: 
+     - Log which sections were missing
+     - Use default content for those sections
+   - **User Notification**:
+     - Display specific sections that were missing: "Section X not found in CLAUDE.md. Using default content."
+
 ### Special Features
 - Pull issue template content from CLAUDE.md
 - No version control integration in v1
@@ -111,8 +145,12 @@ The tool will create the following directories if they don't exist:
 The tool will extract content from CLAUDE.md to populate parts of the task template:
 
 1. **Detection Process**:
-   - Look for CLAUDE.md in the current directory
-   - If not found, look for CLAUDE.md in the user's home directory
+   - First, check if a file is specified via the `--claude-file` option
+   - If not specified, search for CLAUDE.md in the following order:
+     - Current working directory
+     - Project root directory (if different)
+     - User's home directory (~/.CLAUDE.md)
+   - Log the search process and which file was found or that none was found
 
 2. **Content Extraction**:
    - Parse the CLAUDE.md file as markdown
@@ -120,6 +158,7 @@ The tool will extract content from CLAUDE.md to populate parts of the task templ
      - Implementation Gates (to populate the Gates sections in the task template)
      - Test Driven Development requirements
      - Code Changes Discipline guidelines
+   - Log which sections were successfully extracted
 
 3. **Mapping to Task Template**:
    - The Implementation Gates section will be mapped to corresponding sections in the task template
@@ -127,8 +166,20 @@ The tool will extract content from CLAUDE.md to populate parts of the task templ
    - Code Changes guidelines will be included in the Implementation section
 
 4. **Fallback Behavior**:
-   - If CLAUDE.md is not found, use the default task template
-   - If specific sections are not found in CLAUDE.md, use default content for those sections
+   - If CLAUDE.md is not found:
+     - Use the default templates without modification
+     - If the `--generate-claude` flag is provided, generate a sample CLAUDE.md file in the current directory
+     - Log a warning that CLAUDE.md was not found and that default templates are being used
+   - If specific sections are not found in CLAUDE.md:
+     - Use default content for those sections
+     - Log which sections were missing and that defaults are being used
+
+5. **Sample CLAUDE.md Generation**:
+   - When the `--generate-claude` flag is provided but no CLAUDE.md is found, generate a sample file with:
+     - Basic Implementation Gates structure
+     - Simple TDD guidelines
+     - Standard code changes discipline rules
+   - The generated file serves as a starting point that users can customize
 
 ## Implementation Plan
 1. Set up Node.js project with necessary dependencies
