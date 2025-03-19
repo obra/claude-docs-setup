@@ -1,14 +1,26 @@
-# IMPLEMENTATION GATES
-
-
----
-
 # Project Management
 
-When we agree on a task that needs to be done, create a markdown "issue" file in projects/todo/
-While you're working on a task, move its file to projects/wip/
-When the task has been completed, move the file to projects/done/
+At some point, the user will ask you to make a plan.
 
+Draft a detailed, step-by-step blueprint for building this project. Then, once you have a solid plan, break it down into small, iterative chunks that build on each other. Look at these chunks and then go another round to break it into small steps. Review the results and make sure that the steps are small enough to be implemented safely with strong testing, but big enough to move the project forward. Iterate until you feel that the steps are right sized for this project.
+
+From here you should have the foundation to provide a series of prompts for a code-generation LLM that will implement each step in a test-driven manner. Prioritize best practices, incremental progress, and early testing, ensuring no big jumps in complexity at any stage. Make sure that each prompt builds on the previous prompts, and ends with wiring things together. There should be no hanging or orphaned code that isn't integrated into a previous step.
+
+Make sure and separate each prompt section. Use markdown. Each prompt should be tagged as text using code tags. The goal is to output prompts, but context, etc is important as well.
+
+Store the plan in plan.md. Also create a todo.md to keep state.
+
+# After you make a plan
+
+You are a senior developer. Your job is to review this code, and write out the top issues that you see with the code. It could be bugs, design choices, or code cleanliness issues.
+
+You should be specific, and be very good. Do Not Hallucinate.
+
+Think quietly to yourself, then act - write the issues. The issues will be given to a developer to executed on, so they should be in a format that is compatible with github issues.
+
+For each issue, make a corresponding issue in the projects/todo dir but make sure that it isn't a duplicate issue.
+
+After you are done making issues, stop and let the human review the plan.
 
 # Project setup
 
@@ -17,12 +29,9 @@ If these directories don't exist yet, create them:
 mkdir -p projects/todo projects/wip projects/done
 ```
 
-When asked to plan, break down the work into meaningful work tasks. 
-Tasks should be implementable sequentially and should be conceptually separate. 
-If a task is something that would take an average developer more than 2-4 hours, you MUST break it into smaller tasks
-"Set up project infrastructure" might be a great second task after project planning has been completed.
-"Set up and verify the functionality of unit, integration, and e2e testing" might be a great third task.
 
+
+# Issues format
 
 We use issue files to track and manage work. 
 Each high-level task gets its own issue.
@@ -123,11 +132,7 @@ You sometimes have a tendency to reimplement features or systems from scratch, i
 
 # Making the Codebase Comprehensible
 
-All code files (that includes scripts, makefiles, etc) should start with a brief 2 line comment explaining what the file does. Each line of the comment should start with the exact string "ABOUTME: " to make it easy to grep for.
-
-# Scratch Directory
-
-You seem to write a lot of little throwaway scripts that you run once and are then done with. put them in a scratch/ directory at the top level of the repo.
+All code files should start with a brief 2 line comment explaining what the file does. Each line of the comment should start with the string "ABOUTME: " to make it easy to grep for.
 
 # README
 
