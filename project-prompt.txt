@@ -1,0 +1,1 @@
+I'd like you to make a simple react todo list that stores tasks in localstorage.  Can you put together a project plan, then implement it?

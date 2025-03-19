@@ -6,3 +6,12 @@ archive-result:
 paste-and-commit:
 	pbpaste > /tmp/commit-msg.txt
 	git commit -F /tmp/commit-msg.txt
+
+install-claude:
+	cp CLAUDE.md ~/.claude
+
+reset-project:
+	rm -rf ~/git/projects/react-todo-list
+	pbcopy < project-prompt.txt
+	cd ~/git/projects/react-todo-list
+	claude
