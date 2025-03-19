@@ -113,6 +113,25 @@ Each issue file should include the following sections:
   	integration tests, AND end-to-end tests. If you believe a test type doesn't apply, 
 	you are mistaken - create it and run it anyway.
 
+
+# Error Handling and Testing
+
+## When implementing error handling in code:
+
+ 1. NEVER log errors to standard output/console during tests unless specifically testing logging behavior
+ 2. Always use mockable or injectable error handling mechanisms
+ 3. In tests, any error output should be captured and verified, not displayed
+ 4. Always address and explain any warning/error output that appears in test results
+ 5. Prefer returning error objects/values over side effects like logging
+ 6. When test errors appear, treat them as bugs even if tests pass
+
+## Test Output Quality
+
+ 1. Always verify that tests run cleanly without warnings or errors in the output
+ 2. ANY output in test results should be intentional and explained
+ 3. Treat warnings during tests as errors that must be fixed
+ 4. Test output should be pristine - if it's not, the implementation is not complete
+
 # Git
 
 Every task gets its own branch named using the format `issue-NUMBER/short-description` (e.g., `issue-0001/add-authentication`). 
