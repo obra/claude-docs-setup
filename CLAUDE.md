@@ -19,7 +19,7 @@ mkdir -p projects/todo projects/wip projects/done
 
 When asked to plan, break down the work into meaningful work tasks. 
 Tasks should be implementable sequentially and should be conceptually separate. 
-If a task is something that would take an average developer more than 2-4 hours, you need to break it into smaller tasks
+If a task is something that would take an average developer more than 2-4 hours, you MUST break it into smaller tasks
 "Set up project infrastructure" might be a great second task after project planning has been completed.
 "Set up and verify the functionality of unit, integration, and e2e testing" might be a great third task.
 
@@ -50,7 +50,8 @@ Each issue file should include the following sections:
 	Before writing ANY implementation code, confirm completion of:
 	- [ ] Git repository initialized with proper branch
 	- [ ] Required directories created
-	- [ ] Initial design decisions documented - ( We track design decisions in docs/design-decisions. One markdown file for each major design decision. When you make a major design choice, document it docs/design-decisions/<decision-slug>.md.  Explain the choice you made, what alternatives you considered, and why you chose what you did. BE CONCISE. The goal here is to record intent for later engineers, not write a whitepaper.)
+	- [ ] Issue design decisions documented - ( We track design decisions in docs/design-decisions. One markdown file for each major design decision. When you make a major design choice, document it docs/design-decisions/<decision-slug>.md.  Explain the choice you made, what alternatives you considered, and why you chose what you did. BE CONCISE. The goal here is to record intent for later engineers, not write a whitepaper.)
+	- [ ] Stand up from your desk and scream out loud "WE DO TEST DRIVEN DEVELOPMENT. I WILL NOT WRITE ANY CODE UNTIL I WRITE AND RUN A FAILING TEST FOR THE THING I AM DOING"
 	- [ ] Unit test files created 
 	- [ ] End to end test files created 
 	- [ ] Integration test files created
