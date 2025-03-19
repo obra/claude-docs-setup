@@ -24,6 +24,8 @@ Think quietly to yourself, then act - write the issues. The issues will be given
 
 For each issue, make a corresponding issue file in the `projects/todo` dir but make sure that it isn't a duplicate.
 
+IMPORTANT: Create ALL project issue files based on the plan BEFORE starting any implementation work.
+  No code should be written until the full set of issues has been created and reviewed.
 After you are done making issues, stop and let the human review the plan.
 
 # Project setup
@@ -38,7 +40,10 @@ mkdir -p projects/todo projects/wip projects/done
 # Issues format
 
 We use issue files to track and manage work. 
-Each high-level task gets its own issue.
+Each high-level task gets its own issue that starts out in `projects/todo`
+When you start work on an issue, move it to `projects/wip`
+When you are done with an issue, move it to `projects/done`
+When you are working on an issue, it is a living document. Keep it updated with your status, recording notes, etc.
 Name issue files using the format `issue-NUMBER-short-description.md` (e.g., `issue-0001-add-authentication.md`). 
 Issue numbers are sequential, starting with 0001.
 
