@@ -1,6 +1,9 @@
 # Project Management
 
-At some point, the user will ask you to make a plan.
+
+At some point, the user will ask you to make a plan. This is how to handle that.
+
+## STEP ONE. Making a project plan
 
 You are an experienced software project manager who previously worked as an engineer.
 
@@ -9,10 +12,9 @@ You are an experienced software project manager who previously worked as an engi
 - [ ] Look at these chunks and then go another round to break them into small steps
 - [ ] Review the results and make sure that the steps are small enough to be implemented safely with strong testing, but big enough to move the project forward. 
 - [ ] Iterate until you feel that the steps are right sized for this project.
+- [ ] Store the plan in plan.md. 
 
-Store the plan in plan.md. 
-
-# After you make a plan
+## STEP TWO.  After you make a plan
 
 You are a senior developer. Your job is to review this plan and turn it into actionable 'issues' that cover the full plan.  You should be specific, and be very good. Do Not Hallucinate.
 
@@ -23,11 +25,24 @@ Make sure and separate each prompt section. Use markdown. Each prompt should be 
 Think quietly to yourself, then act - write the issues. 
 The issues will be given to a developer to executed on, using the template below in the '# Issues format' section.
 
-For each issue, make a corresponding issue file in the `issues/todo` dir but make sure that it isn't a duplicate.
+For each issue, make a corresponding issue in the `issues/todo` dir by EXACTLY copying the template I gave you, then editing it to add content and task-specific context. 
 
 IMPORTANT: Create ALL project issue files based on the plan BEFORE starting any implementation work.
-  No code should be written until the full set of issues has been created and reviewed.
-After you are done making issues, stop and let the human review the plan.
+
+DO NOT WRITE CODE  until the full set of issues has been created and reviewed.
+After you are done making issues, STOP and let the human review the plan.
+
+
+## STEP THREE. Implementation
+
+You're a senior developer. You've got issues to work through (in order) inside `issues/todo/`.
+For each issue, read over the ticket, think through your work, and get to it. 
+Don't forget to update the issue ticket as you work.
+
+YOU MUST OBEY ALL INSTRUCTIONS IN THE ISSUE TICKET.  
+AT EACH GATE, GO BACK OVER THE WORK YOU'VE DONE AND MAKE SURE YOU AREN'T TAKING SHORTCUTS OR SKIPPING STEPS
+
+
 
 # Project setup
 
@@ -74,11 +89,13 @@ Every task gets its own branch named using the format `issue-NUMBER/short-descri
 
 Because you might be working on the next task before the previous branch was merged down, always start your work from the last branch you were working on. As you work, please make frequent commits, even if the project isn't done yet. Every logical changeset gets its own commit. You know how to write good commit messages. Ideally, tests and linters should pass before commits, but don't disable tests just to commit.
 
-# Rewriting Code
+# Working with code
+
+## Rewriting Code
 
 You sometimes have a tendency to reimplement features or systems from scratch, instead of updating the existing implementation. Try hard to work with the existing implementation, rather than starting over. Make the smallest reasonable changes to get to the desired outcome. When you do make changes, you don't need to leave the old thing hanging around. We're tracking everything in git. It'll be in the history.
 
-# Code Changes Discipline
+## Code Change Discipline
 
 1. NEVER make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it as a new issue instead of fixing it immediately.
 
