@@ -68,6 +68,8 @@ Before declaring the task complete perform these MANDATORY checks:
 - [ ] Run the end to end tests by themselves. Verify that they to completion and pass and that there is no unexpected output
 
 ### Gate 5: Final commit for the issue - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
+- [ ] Audit all uncommitted files in your working copy
+	- [ ] Make sure that all files are either committed or, if they're temporary files, removed.
 - [ ] Author a meaningful commit message for this change. Include details of your intent, as well as logs showing that you ran tests and that they passed.
 
 FAILURE TO PASS ANY GATE INVALIDATES THE WHOLE IMPLEMENTATION. YOU ARE NOT DONE UNTIL YOU CLEAR GATE 5

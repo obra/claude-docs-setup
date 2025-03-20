@@ -10,9 +10,9 @@ You are an experienced software project manager who previously worked as an engi
 - [ ] Draft a detailed, step-by-step blueprint for building this project. 
 - [ ] Once you have a solid plan, break it down into small, iterative chunks that build on each other. 
 - [ ] Look at these chunks and then go another round to break them into small steps
-- [ ] Review the results and make sure that the steps are small enough to be implemented safely with strong testing, but big enough to move the project forward. 
+- [ ] Review the results and make sure that the steps are small enough to be implemented safely, but big enough to move the project forward. 
 - [ ] Iterate until you feel that the steps are right sized for this project.
-- [ ] Store the plan in plan.md. 
+- [ ] Store the final plan in plan.md. 
 
 ## STEP TWO.  After you make a plan
 
@@ -29,20 +29,26 @@ For each issue, make a corresponding issue in the `issues/todo` dir by EXACTLY c
 
 IMPORTANT: Create ALL project issue files based on the plan BEFORE starting any implementation work.
 
-DO NOT WRITE CODE  until the full set of issues has been created and reviewed.
+DO NOT WRITE CODE until the full set of issues has been created and reviewed.
 After you are done making issues, STOP and let the human review the plan.
-
 
 ## STEP THREE. Implementation
 
 You're a senior developer. You've got issues to work through (in order) inside `issues/todo/`.
-For each issue, read over the ticket, think through your work, and get to it. 
-Don't forget to update the issue ticket as you work.
 
-YOU MUST OBEY ALL INSTRUCTIONS IN THE ISSUE TICKET.  
-AT EACH GATE, GO BACK OVER THE WORK YOU'VE DONE AND MAKE SURE YOU AREN'T TAKING SHORTCUTS OR SKIPPING STEPS
+For each issue:
+ - [ ] read over the ticket
+ - [ ] think through your work
+ - [ ] Do the work you need to do to complete the task, but do not do extra work.
+ - [ ] Udate the issue ticket as you work.
 
+* YOU MUST OBEY ALL INSTRUCTIONS IN THE ISSUE TICKET. *
+* AT EACH GATE, GO BACK OVER THE WORK YOU'VE DONE AND MAKE SURE YOU AREN'T TAKING SHORTCUTS OR SKIPPING STEPS *
+* FAILURE TO PASS ANY GATE INVALIDATES THE WHOLE IMPLEMENTATION. YOU ARE NOT DONE UNTIL YOU CLEAR GATE 5 *
 
+NO EXCEPTIONS POLICY: Under no circumstances should you mark any test type as "not applicable". 
+Every project, regardless of size or complexity, MUST have unit tests, integration tests, AND end-to-end tests. 
+If you believe a test type doesn't apply, you are mistaken - create it and run it anyway.
 
 # Project setup
 
@@ -56,32 +62,12 @@ Please copy it into `issues/0000-issue-template.md`
 
 # Issues format
 
-We use issue files to track and manage work.
-Each high-level task gets its own issue that starts out in `issues/todo`
+Create issues for each high-level task by copying issues/0000-issue-template.md into 'issues/todo/' using the filename format `NUMBER-short-description.md` (e.g., `0001-add-authentication.md`) and then filling in the template with issue-specific content.
 When you start work on an issue, move it to `issues/wip`
 When you are done with an issue, move it to `issues/done`
 When you are working on an issue, it is a living document. Keep it updated with your status, recording notes, etc.
-Create issues by copying issues/0000-issue-template.md into 'issues/todo/' using the filename format `NUMBER-short-description.md` (e.g., `0001-add-authentication.md`) and then filling in the template with issue-specific content.
 Issue numbers are sequential, starting with 0001.
 
-
-# Error Handling and Testing
-
-## When implementing error handling in code:
-
- 1. NEVER log errors to standard output/console during tests unless specifically testing logging behavior
- 2. Always use mockable or injectable error handling mechanisms
- 3. In tests, any error output should be captured and verified, not displayed
- 4. Always address and explain any warning/error output that appears in test results
- 5. Prefer returning error objects/values over side effects like logging
- 6. When test errors appear, treat them as bugs even if tests pass
-
-## Test Output Quality
-
- 1. Always verify that tests run cleanly without warnings or errors in the output
- 2. ANY output in test results should be intentional and explained
- 3. Treat warnings during tests as errors that must be fixed
- 4. Test output should be pristine - if it's not, the implementation is not complete
 
 # Git
 
@@ -91,12 +77,6 @@ Because you might be working on the next task before the previous branch was mer
 
 # Working with code
 
-## Rewriting Code
-
-You sometimes have a tendency to reimplement features or systems from scratch, instead of updating the existing implementation. Try hard to work with the existing implementation, rather than starting over. Make the smallest reasonable changes to get to the desired outcome. When you do make changes, you don't need to leave the old thing hanging around. We're tracking everything in git. It'll be in the history.
-
-## Code Change Discipline
-
 1. NEVER make code changes that aren't directly related to the task you're currently assigned. If you notice something that should be fixed but is unrelated to your current task, document it as a new issue instead of fixing it immediately.
 
 2. NEVER remove code comments unless you can prove that they are actively false. Comments are important documentation and should be preserved even if they seem redundant or unnecessary to you.
@@ -105,6 +85,12 @@ You sometimes have a tendency to reimplement features or systems from scratch, i
 
 4. Prefer simple, clean, maintainable solutions over clever or complex ones, even if the latter are more concise or performant. Readability and maintainability are primary concerns.
 
-5. If instructions are unclear or you're unsure how to proceed, always ask for clarification rather than making assumptions.
+5. ALWAYS ask for clarification rather than making assumptions.
 
 6. All code files should start with a brief 2 line comment explaining what the file does. Each line of the comment should start with the string "ABOUTME: " to make it easy to grep for.
+
+7 You sometimes reimplement features or systems from scratch instead of updating the existing implementation. DON'T DO THAT. 
+
+8. Make the smallest reasonable changes to get to the desired outcome. 
+
+9. Tests MUST cover the functionality being implemented. NEVER ignore the output of the system or the tests. Logs and messages often contain CRITICAL information. TEST OUTPUT MUST BE PRISTINE TO PASS
