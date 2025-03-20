@@ -9,6 +9,7 @@ paste-and-commit:
 
 install-claude:
 	cp CLAUDE.md ~/.claude
+	cp 0000-issue-template.md ~/.claude
 
 reset-project: install-claude
 	rm -rf ~/git/projects/react-todo-list
