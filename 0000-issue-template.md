@@ -27,7 +27,7 @@ List of all git commits made and the branch name.
 - [ ] Plan your implementation
 - [ ] Ensure that all implementation tasks are listed in this TODO list. 
 
-### Gate 1: Pre-Implementation - STOP HERE AND THINK
+### Gate 1: Pre-Implementation 
 
 Before writing ANY implementation code, confirm completion of ALL of these tasks:
 - [ ] Git repository initialized with proper branch checked out
@@ -42,18 +42,18 @@ Before writing ANY implementation code, confirm completion of ALL of these tasks
 - [ ] Verify that new end to end tests run to completion and fail
 
 
-### Gate 2: Implement the functionality - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
+### Gate 2: Implement the functionality
 
 [ fill in this section with issue-specific tasks ]	
 
-### Gate 3: Mid-Implementation Review - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
+### Gate 3: Mid-Implementation Review 
 
 After implementing core functionality:
 - [ ] Verify all completed code adheres to ALL requirements in this file and in CLAUDE.md
 - [ ] Check for drift from documented design decisions
 - [ ] Confirm test coverage for all implemented features
 
-### Gate 4: Pre-Completion Verification - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
+### Gate 4: Pre-Completion Verification
 
 Before declaring the task complete perform these MANDATORY checks:
 - [ ] Run ALL verification commands (tests, linting, typechecking)
@@ -67,7 +67,7 @@ Before declaring the task complete perform these MANDATORY checks:
 - [ ] Run the integration tests by themselves. Verify that they to completion and pass and that there is no unexpected output
 - [ ] Run the end to end tests by themselves. Verify that they to completion and pass and that there is no unexpected output
 
-### Gate 5: Final commit for the issue - STOP HERE AND THINK: DID I FOLLOW BOTH THE LETTER AND SPIRIT OF MY INSTRUCTIONS
+### Gate 5: Final commit for the issue 
 - [ ] Audit all uncommitted files in your working copy
 	- [ ] Make sure that all files are either committed or, if they're temporary files, removed.
 - [ ] Author a meaningful commit message for this change. Include details of your intent, as well as logs showing that you ran tests and that they passed.
