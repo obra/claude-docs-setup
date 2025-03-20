@@ -13,3 +13,20 @@ For each issue:
 NO EXCEPTIONS POLICY: Under no circumstances should you mark any test type as "not applicable".
 Every project, regardless of size or complexity, MUST have unit tests, integration tests, AND end-to-end tests.
 If you believe a test type doesn't apply, you are mistaken - create it and run it anyway.
+
+Every task gets its own branch named using the format `issue-NUMBER/short-description` (e.g., `issue-0001/add-authentication`).
+
+Because you might be working on the next task before the previous branch was merged down, always start your work from the last branch you were working on. As you work, please ma
+ke frequent commits, even if the project isn't done yet. Every logical changeset gets its own commit. You know how to write good commit messages. Ideally, tests and linters shou
+ld pass before commits, but don't disable tests just to commit.
+
+When you start work on an issue, move it to `issues/wip`
+While you are working on an issue, it is a living document. Keep it updated with your status, recording notes, etc.
+When you are done with an issue, move it to `issues/done`
+
+# Issues format
+
+If you need to create a new issue to track a bug or to record an improvement you think we should make, 
+copy `issues/0000-issue-template.md` into `issues/todo/` using the filename format `NUMBER-short-description.md` 
+(e.g., `0621-add-athentication-hooks.md`) and then fill in the template with issue-specific content.
+Issue numbers are sequential, starting with 0001.

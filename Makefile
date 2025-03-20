@@ -4,12 +4,13 @@ archive-result:
 	git add react-todo-list/as-of-`git rev-parse HEAD`
 
 paste-and-commit:
-	pbpaste > /tmp/commit-msg.txt
-	git commit -F /tmp/commit-msg.txt
+	pbpaste >> commit-msg.txt
+	git commit -F commit-msg.txt && rm commit-msg.txt
 
 install-claude:
 	cp CLAUDE.md ~/.claude
 	cp 0000-issue-template.md ~/.claude
+	cp commands/* ~/.claude/commands/
 
 reset-project: install-claude
 	rm -rf ~/git/projects/react-todo-list
