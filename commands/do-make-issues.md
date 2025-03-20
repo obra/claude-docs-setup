@@ -22,7 +22,7 @@ If these directories don't exist yet, create them:
 mkdir -p issues/todo issues/wip issues/done
 ```
 The default issue template lives in `~/.claude/0000-issue-template.md`
-Please copy it into `issues/0000-issue-template.md`
+Please copy it into `issues/0000-issue-template.md` using the `cp` shell command. Don't look inside it before copying it.
 
 # Issues format
 
