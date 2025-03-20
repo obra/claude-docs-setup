@@ -6,6 +6,7 @@ From here you should have the foundation to provide a series of prompts for a co
 
 Make sure and separate each prompt section. Use markdown. Each prompt should be tagged as text using code tags. The goal is to output prompts, but context, etc is important as well.
 
+Think quietly to yourself, then act - write the issues. 
 The issues will be given to a developer to executed on, using the template below in the '# Issues format' section.
 
 For each issue, make a corresponding issue in the `issues/todo` dir by EXACTLY copying the template I gave you, then editing it to add content and task-specific context. 
